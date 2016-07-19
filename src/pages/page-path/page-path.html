@@ -1,0 +1,29 @@
+<dom-module id="page-path">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    Hello World
+  </template>
+  <script>
+    (function (Polymer) {
+      'use strict';
+      class PagePath {
+        beforeRegister() {
+          this.is = 'page-path';
+
+          this.properties = {
+
+          };
+        }
+
+        attached() {
+        }
+      }
+
+      Polymer(PagePath);
+    })(Polymer);
+  </script>
+</dom-module>
