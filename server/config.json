@@ -1,0 +1,7 @@
+{
+  "dir": {
+    "app": "/home/frederick/WORK/wjs-wms/",
+    "server": "/home/frederick/WORK/wjs-wms/server/",
+    "swagger": "/home/frederick/WORK/wjs-wms/server/api/swagger/"
+  }
+}
