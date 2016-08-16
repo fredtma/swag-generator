@@ -1,4 +1,4 @@
 {
-  "maximumLineLength": 120,
-  "maxErrors": 20
+  "maximumLineLength": 140,
+  "maxErrors": 200
 }

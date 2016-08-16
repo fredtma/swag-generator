@@ -1,0 +1,88 @@
+'use strict';
+var wealthUtilities = require('wealth-utilities');
+var {{replace}}Service = require('../../lib/services/{{replace}}/{{replace}}Service');
+
+{{#get}}
+function get{{Replace}}(request, response /*, next*/) {
+  return {{replace}}Service.get{{Replace}}({
+    'url': request.url,
+    'params': request.swagger.params,
+    'tokenContext': request.swagger.tokenContext
+  }).done(
+    wealthUtilities.getDefaultSuccessHandler(response),
+    wealthUtilities.getDefaultFailedHandler(response)
+  );
+}
+exports.getEmpty  = get{{Replace}};
+exports.get       = get{{Replace}};
+
+{{/get}}
+{{#list}}
+function get{{Replace}}List(request, response) {
+  return {{replace}}Service.get{{Replace}}List({
+    'url': request.url,
+    'params': request.swagger.params,
+    'tokenContext': request.swagger.tokenContext
+  }).done(
+    wealthUtilities.getDefaultSuccessHandler(response),
+    wealthUtilities.getDefaultFailedHandler(response)
+  );
+}
+exports.get{{Replace}}List  = get{{Replace}}List;
+
+{{/list}}
+{{#put}}
+// Update {{replace}} detail
+function put{{Replace}}(request, response /*, next*/) {
+  var swagger       = request.swagger;
+  var params        = swagger.params;
+  var tokenContext  = swagger.tokenContext;
+  var options       = {
+    'url': request.url,
+    'tokenContext': {
+      'brokerIdNumber': tokenContext.idnumber,
+      'brokerHouseCode': tokenContext.brokerHouseCode,
+      'brokerCode': tokenContext.brokerCode
+    }
+  };
+  if (params.{{replace}}Detail) {
+    options.body = params.{{replace}}Detail.value;
+  } else {
+    options.params = params;
+  }
+
+  return {{replace}}Service.save{{Replace}}(options).done(
+    wealthUtilities.getDefaultSuccessHandler(response),0
+    wealthUtilities.getDefaultFailedHandler(response)
+  );
+}
+exports.put       = put{{Replace}};
+
+{{/put}}
+{{#post}}
+// Add {{replace}} detail
+function save{{Replace}}(request, response /*, next*/) {
+  var swagger       = request.swagger;
+  var params        = swagger.params;
+  var tokenContext  = swagger.tokenContext;
+  var options       = {
+    'url': request.url,
+    'tokenContext': {
+      'brokerIdNumber': tokenContext.idnumber,
+      'brokerHouseCode': tokenContext.brokerHouseCode,
+      'brokerCode': tokenContext.brokerCode
+    }
+  };
+  if (params.{{replace}}Detail) {
+    options.body = params.{{replace}}Detail.value;
+  } else {
+    options.params = params;
+  }
+  return {{replace}}Service.save{{Replace}}(options).done(
+    wealthUtilities.getDefaultSuccessHandler(response),
+    wealthUtilities.getDefaultFailedHandler(response)
+  );
+}
+exports.post      = save{{Replace}};
+
+{{/post}}
